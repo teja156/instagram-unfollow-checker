@@ -9,7 +9,7 @@ import sys
 
 FOLLOWER_LIMIT = 10000000
 insta_username = 'teja.py'
-insta_password = '156@Swaroop'
+insta_password = '3pCLqbjD8gcYW49znq'
 username = 'teja.techraj'
 MINS_TO_SLEEP = 55
 
@@ -69,13 +69,15 @@ while True:
 			f.write(str(current_followers))
 			f.close()
 
-		sleep(MINS_TO_SLEEP*60)
+		
 
 	except KeyboardInterrupt:
 		print("Exiting...")
 		sys.exit(0)
-	except:
-		continue
+	except Exception as e:
+		print(e)
+		
+	sleep(MINS_TO_SLEEP*60)
 
 
 
