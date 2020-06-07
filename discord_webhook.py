@@ -6,7 +6,9 @@ WEBHOOK_URL = 'https://discordapp.com/api/webhooks/.....'
 
 
 def send_msg(username, follower_change, followers, unfollowers,
-             followers_count, unfollowers_count, time):
+             followers_count, unfollowers_count, time, webhook_url):
+
+    WEBHOOK_URL = webhook_url
 
     if followers == [] and unfollowers == []:
         print("No change in followers, so not sending message to discord")
