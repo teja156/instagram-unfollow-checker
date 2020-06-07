@@ -1,17 +1,26 @@
 from igramscraper.instagram import Instagram
 from time import sleep
+import os
 from os import path
 import datetime
 import discord_webhook
 import ast
 import sys
+from pytz import timezone
 
+FOLLOWER_LIMIT = 10**6
 
-FOLLOWER_LIMIT = 10000000
-insta_username = 'teja.py'
-insta_password = '3pCLqbjD8gcYW49znq'
-username = 'teja.techraj'
-MINS_TO_SLEEP = 55
+#Your instagram bot account username
+insta_username = ''
+
+#Your instagram bot account password
+insta_password = ''
+
+#Username of the real instagram account which you want to monitor
+username = ''
+
+#Change this at your own risk
+MINS_TO_SLEEP = 40
 
 
 
@@ -33,7 +42,7 @@ while True:
 		followers = []
 		account = instagram.get_account(username)
 		sleep(1)
-		curr_time = datetime.datetime.now()
+		curr_time = datetime.datetime.now(timezone('Asia/Kolkata'))
 		curr_time = curr_time.strftime("%b %d, %Y - %H:%M:%S")
 		followers = instagram.get_followers(account.identifier, FOLLOWER_LIMIT, 100, delayed=True) # Get 150 followers of 'kevin', 100 a time with random delay between requests
 		# print(followers)
@@ -76,7 +85,7 @@ while True:
 		sys.exit(0)
 	except Exception as e:
 		print(e)
-		
+
 	sleep(MINS_TO_SLEEP*60)
 
 

@@ -1,6 +1,8 @@
 from discord_webhooks import DiscordWebhooks
 
-WEBHOOK_URL = 'https://discord.com/api/webhooks/718193141760524288/2xfij8tXfxJf6S4VVFaE9qoZob3s8Da2cSNzRuL99uPthRqtbXtLiZk70vAKwEvAnlPr'
+#Put your discord webhook url here.
+# IMPORTANT : If you're hosting on pythonanywhere, use discordapp.com instead of discord.com in the URL
+WEBHOOK_URL = 'https://discordapp.com/api/webhooks/.....'
 
 
 def send_msg(username, follower_change, followers, unfollowers,
@@ -31,7 +33,7 @@ def send_msg(username, follower_change, followers, unfollowers,
     if unfollowers != 'None':
         webhook.add_field(name='People who unfollowed you (%d)' %
                           (unfollowers_count),
-                          value=','.join(unfollowers))
+                          value=', '.join(unfollowers))
     else:
         webhook.add_field(name='People who unfollowed you (%d)' %
                           (unfollowers_count),
@@ -40,7 +42,7 @@ def send_msg(username, follower_change, followers, unfollowers,
     if followers != 'None':
         webhook.add_field(name='People who followed you (%d)' %
                           (followers_count),
-                          value=','.join(followers))
+                          value=', '.join(followers))
     else:
         webhook.add_field(name='People who followed you (%d)' %
                           (followers_count),
